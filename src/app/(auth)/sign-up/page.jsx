@@ -1,5 +1,5 @@
 'use client'
-import { signIn, signUp } from "@/app/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 
 const SignUpPage = () => {
@@ -15,7 +15,7 @@ const SignUpPage = () => {
         password : data.password
       }
     )
-    console.log(resData ,error)
+    console.log('after sifn up',resData ,error)
   };
   const handleGoogleSignIn = async()=>{
     const resData = await signIn.social({

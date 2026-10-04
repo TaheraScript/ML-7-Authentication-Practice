@@ -9,9 +9,10 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import { signIn } from "@/app/lib/auth-client";
+import { signIn } from "@/lib/auth-client";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useState } from "react";
+import Link from "next/link";
 const SignInPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const onSubmit = async (e) => {
@@ -59,19 +60,22 @@ const SignInPage = () => {
               return "Password must contain at least one number";
             }
             return null;
-          }} >
+          }}
+        >
           <Label>Password</Label>
           <InputGroup>
             <InputGroup.Input
               className="w-full max-w-70"
-              type={isVisible ? "text" : "password"} />
+              type={isVisible ? "text" : "password"}
+            />
             <InputGroup.Suffix className="pe-0">
               <Button
                 isIconOnly
                 aria-label={isVisible ? "Hide password" : "Show password"}
                 size="sm"
                 variant="ghost"
-                onPress={() => setIsVisible(!isVisible)}>
+                onPress={() => setIsVisible(!isVisible)}
+              >
                 {isVisible ? (
                   <Eye className="size-4" />
                 ) : (
@@ -96,6 +100,14 @@ const SignInPage = () => {
           </Button>
         </div>
       </Form>
+      <p>
+        <small>
+          Forgot Password?
+          <Link className="text-blue-400 underline" href="/forgot-password">
+            click here
+          </Link>
+        </small>
+      </p>
     </div>
   );
 };

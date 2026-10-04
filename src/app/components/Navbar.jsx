@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Link, Button, Spinner } from "@heroui/react";
-import { signOut, useSession } from "../lib/auth-client";
+import { signOut, useSession } from "../../lib/auth-client";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,10 +16,10 @@ if(isPending){
   const links = (
     <>
       <li>
-        <Link href="#">Features</Link>
+        <Link href="/features">Features</Link>
       </li>
       <li>
-        <Link href="#" className="font-medium text-accent" aria-current="page">
+        <Link href="/dashboard" className="font-medium text-accent" aria-current="page">
           Dashboard
         </Link>
       </li>
