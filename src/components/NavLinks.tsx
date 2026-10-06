@@ -11,7 +11,6 @@ const NavLinks = async() => {
     const data = await res.json()
     const navs:INavs[]= data.data
     const filteredNavs = navs.filter(n => n.scrapable=== true)
-    console.log(filteredNavs)
     return (
         <div className="flex gap-5 justify-center m-4">
             <Link className=" text-red-600" href={'/'}>হোম</Link>
