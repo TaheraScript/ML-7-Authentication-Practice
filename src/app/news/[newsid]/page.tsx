@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 const NewsDetailPage = async({params}:{params :Promise<{newsid : string}> }) => {
     const{newsid} = await params
@@ -6,7 +7,9 @@ const NewsDetailPage = async({params}:{params :Promise<{newsid : string}> }) => 
 const res = await fetch(`https://news-api-v2.vercel.app/api/article/${newsid}`)
 const data = await res.json()
 const news = data.data
-    console.log(news)
+   if(!news){
+    notFound()
+   }
     
     return (
         <div>
